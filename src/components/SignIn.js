@@ -9,8 +9,7 @@ import AuthHeader from "./AuthHeader.js";
 
 function SignIn() {
 
-    const { userData, setUserData, token, setToken, nameUser, setNameUser } = useContext(UserContext)
-    console.log(userData)
+    const { userData, setUserData, token, setToken, setNameUser } = useContext(UserContext)
 
     const navigate = useNavigate();
 
@@ -21,7 +20,7 @@ function SignIn() {
 
     const URL = "https://projeto-loja-vinil.herokuapp.com/signin"
 
-    function handleLogin(e){
+    function handleLogin(e) {
         e.preventDefault();
         const promise = axios.post(URL, objSignIn);
 
@@ -31,7 +30,9 @@ function SignIn() {
             setNameUser(data.name);
             console.log("token", token)
             const user = JSON.stringify(data.token);
+            const name = JSON.stringify(data.name);
             localStorage.setItem('token', user)
+            localStorage.setItem('name', name)
             navigate("/")
         })
 
@@ -39,16 +40,15 @@ function SignIn() {
             console.log(error);
             alert("Erro ao fazer o Login!")
         })
-
     }
 
     const loadInputs = inputs()
 
     function inputs() {
         return (
-            <form onSubmit={ handleLogin }  >
-                <input type="email" placeholder="E-mail" value={ userData.email } disabled={ false } onChange={ (e) => setUserData({...userData, email: e.target.value })} ></input>
-                <input type="password" placeholder="Senha" value={ userData.password } disabled={ false } onChange={ (e) => setUserData({...userData, password: e.target.value})} ></input>
+            <form onSubmit={handleLogin}  >
+                <input type="email" placeholder="E-mail" value={userData.email} disabled={false} onChange={(e) => setUserData({ ...userData, email: e.target.value })} ></input>
+                <input type="password" placeholder="Senha" value={userData.password} disabled={false} onChange={(e) => setUserData({ ...userData, password: e.target.value })} ></input>
                 <button type='submit'>Entrar</button>
             </form>
         )
@@ -56,12 +56,13 @@ function SignIn() {
 
     return (
         <>
-        <AuthHeader />
-        <ContainerLogin>
+            <AuthHeader />
+            <ContainerLogin>
 
-            {loadInputs}
-            <Link to='/signup' style={{ textDecoration: 'none'}}> <p>Primeira vez? Cadastre-se!</p> </Link>
-        </ContainerLogin>
+                {loadInputs}
+
+                <Link to='/signup' style={{ textDecoration: 'none' }}> <p>Primeira vez? Cadastre-se!</p> </Link>
+            </ContainerLogin>
         </>
     )
 }

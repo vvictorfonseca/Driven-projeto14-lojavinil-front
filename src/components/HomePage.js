@@ -33,16 +33,19 @@ function HomePage() {
             <Header />
 
             <>
-            {
-            token? (
-                <SpanUsuario>
-                <p>Bem vindo</p>
-                </SpanUsuario>
-            ) : (
-                <SpanUsuario>
-                <p>Você não está logado</p>
-                </SpanUsuario>
-            )}
+                {
+                    token ? (
+                        <SpanUsuario>
+                            <p>Bem vindo, {nameUser}</p>
+                        </SpanUsuario>
+                    ) : (
+                        <SpanUsuario>
+                            <Link to={"/signin"} style={{ textDecoration: 'none' }} >
+                                <p>Você não está logado</p>
+                            </Link>
+                        </SpanUsuario>
+                    )
+                }
             </>
 
             <ContainerMenu>
@@ -58,23 +61,27 @@ function BoxGender(props) {
 
     const { info } = props
 
-    const {categoria, setCategoria} = useContext(UserContext)
+    const { setCategoria } = useContext(UserContext)
 
     return (
-        <Link to={`/albuns/${props.info.name}`} style={{ textDecoration: 'none'}}>
-        
-        <button onClick={()=>{
-            setCategoria("")
-            setCategoria(info.id)
-        }}>
-        
-        <ContainerGender>
-            <ContainerCovers>
-                <img src={props.info.capa} />
-            </ContainerCovers>
-            <p>{props.info.name}</p>
-        </ContainerGender>
-        </button>
+        <Link to={`/albuns/${props.info.name}`} style={{ textDecoration: 'none' }}>
+
+            <button onClick={() => {
+                setCategoria("")
+                setCategoria(info.id)
+            }}>
+
+                <ContainerGender>
+
+                    <ContainerCovers>
+                        <img src={props.info.capa} />
+                    </ContainerCovers>
+
+                    <p>{props.info.name}</p>
+                
+                </ContainerGender>
+
+            </button>
         </Link>
     )
 }
@@ -92,6 +99,8 @@ const SpanUsuario = styled.div`
 
     p{
         text-align:center;
+        cursor: pointer;
+        color: #000000;
     }
 `
 

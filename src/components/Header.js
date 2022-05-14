@@ -6,7 +6,7 @@ import UserContext from '../context/UserContext.js';
 
 function Header() {
 
-    const { setToken, nameUser } = useContext(UserContext)
+    const { setToken, setNameUser } = useContext(UserContext)
 
     const navigate = useNavigate();
 
@@ -15,6 +15,7 @@ function Header() {
             window.localStorage.removeItem('user');
             window.localStorage.clear('user');
             setToken(null);
+            setNameUser(null);
             navigate("/");
         }
     }
@@ -34,7 +35,9 @@ function Header() {
                 </Link>
             </ContainerLogin>
 
+            <Link to={"/"} style={{ textDecoration: 'none' }} >
             <h1>Vinil</h1>
+            </Link>
 
             <ContainerLogof>
             <ion-icon name="cart-outline"></ion-icon>
@@ -58,6 +61,7 @@ const ContainerHeader = styled.div`
         font-family: 'Yesteryear', cursive;
         font-size: 45px;
         margin-right: 85px;
+        color: #000000;
     }
 
     ion-icon{

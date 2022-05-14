@@ -13,17 +13,22 @@ import SignIn from "./SignIn.js";
 function App() {
 
     const tokenStorage = JSON.parse(localStorage.getItem('token'));
+    const nameStorage = JSON.parse(localStorage.getItem('name'));
 
     const [userData, setUserData] = useState({})
     const [token, setToken] = useState("")
     const [categoria, setCategoria] = useState("")
     const [nameUser, setNameUser] = useState("");
 
-    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser}
+    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser }
 
     useEffect(() => {
         if(tokenStorage){
             setToken(tokenStorage)
+        }
+
+        if(nameStorage){
+            setNameUser(nameStorage)
         }
     }, []);
 
