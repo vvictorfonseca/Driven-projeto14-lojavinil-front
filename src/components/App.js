@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
-import GlobalStyle from "./css/GlobalStyle.js";
+import GlobalStyle from "./css/GlobalStyle";
 
-import UserContext from "../context/UserContext.js";
+import UserContext from "../context/UserContext";
 
-import HomePage from "./HomePage.js"
-import AlbunsPage from "./AlbunsPage.js";
+import HomePage from "./HomePage";
+import AlbunsPage from "./AlbunsPage";
 
 function App() {
 
-    const [categoria, setCategoria] = useState("")
+    const [categoria, setCategoria] = useState("");
 
-    const contextValue = {categoria, setCategoria}
+    const contextValue = {categoria, setCategoria};
 
     return (
         <>
