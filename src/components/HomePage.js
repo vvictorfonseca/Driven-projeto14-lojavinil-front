@@ -15,6 +15,10 @@ import cartola from "../midias/cartola.jpg"
 
 function HomePage() {
 
+    const { token, nameUser } = useContext(UserContext)
+    console.log("nome usuário", nameUser);
+    console.log("tokenUser", token);
+
     const genders = [
         { id: "1", capa: `${kiss}`, name: "Rock internacional" },
         { id: "2", capa: `${titas}`, name: "Rock Nacional" },
@@ -27,6 +31,23 @@ function HomePage() {
     return (
         <>
             <Header />
+
+            <>
+                {
+                    token ? (
+                        <SpanUsuario>
+                            <p>Bem vindo, {nameUser}</p>
+                        </SpanUsuario>
+                    ) : (
+                        <SpanUsuario>
+                            <Link to={"/signin"} style={{ textDecoration: 'none' }} >
+                                <p>Você não está logado</p>
+                            </Link>
+                        </SpanUsuario>
+                    )
+                }
+            </>
+
             <ContainerMenu>
 
                 {genders.map(gender => <BoxGender info={gender} />)}
@@ -40,26 +61,48 @@ function BoxGender(props) {
 
     const { info } = props
 
-    const {categoria, setCategoria} = useContext(UserContext)
+    const { setCategoria } = useContext(UserContext)
 
     return (
-        <Link to={`/albuns/${props.info.name}`} style={{ textDecoration: 'none'}}>
-        
-        <button onClick={()=>{
-            setCategoria("")
-            setCategoria(info.id)
-        }}>
-        
-        <ContainerGender>
-            <ContainerCovers>
-                <img src={props.info.capa} />
-            </ContainerCovers>
-            <p>{props.info.name}</p>
-        </ContainerGender>
-        </button>
+        <Link to={`/albuns/${props.info.name}`} style={{ textDecoration: 'none' }}>
+
+            <button onClick={() => {
+                setCategoria("")
+                setCategoria(info.id)
+            }}>
+
+                <ContainerGender>
+
+                    <ContainerCovers>
+                        <img src={props.info.capa} />
+                    </ContainerCovers>
+
+                    <p>{props.info.name}</p>
+                
+                </ContainerGender>
+
+            </button>
         </Link>
     )
 }
+
+const SpanUsuario = styled.div`
+    margin:auto auto;
+    margin-top: 15px;
+    background-color: #F5DEB3;
+    width: 300px;
+    height:30px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:15px;
+
+    p{
+        text-align:center;
+        cursor: pointer;
+        color: #000000;
+    }
+`
 
 const ContainerMenu = styled.div`
     width: 700px;
@@ -68,7 +111,7 @@ const ContainerMenu = styled.div`
     display:flex;
     flex-wrap: wrap;
     margin: auto auto;
-    margin-top: 35px;
+    margin-top: 20px;
     border-radius: 5px;
 
     button{

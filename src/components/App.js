@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import GlobalStyle from "./css/GlobalStyle";
 
@@ -10,9 +10,25 @@ import AlbunsPage from "./AlbunsPage";
 
 function App() {
 
-    const [categoria, setCategoria] = useState("");
+    const tokenStorage = JSON.parse(localStorage.getItem('token'));
+    const nameStorage = JSON.parse(localStorage.getItem('name'));
 
-    const contextValue = {categoria, setCategoria};
+    const [userData, setUserData] = useState({})
+    const [token, setToken] = useState("")
+    const [categoria, setCategoria] = useState("")
+    const [nameUser, setNameUser] = useState("");
+
+    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser }
+
+    useEffect(() => {
+        if(tokenStorage){
+            setToken(tokenStorage)
+        }
+
+        if(nameStorage){
+            setNameUser(nameStorage)
+        }
+    }, []);
 
     return (
         <>
@@ -21,6 +37,8 @@ function App() {
                 <UserContext.Provider value={contextValue}>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/signin" element={<SignIn />} />
                         <Route path="/albuns/:idgenero" element={<AlbunsPage />} />
                     </Routes>
                 </UserContext.Provider>

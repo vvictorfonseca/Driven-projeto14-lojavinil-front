@@ -1,9 +1,10 @@
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useContext } from "react";
 
-import UserContext from '../context/UserContext';
+import UserContext from '../context/UserContext.js';
+import axios from 'axios';
+
 import Header from "./Header";
 import Main from "./stylesAll/Main";
 import CapaAlbum from './stylesAll/CapaAlbum';
@@ -26,8 +27,9 @@ function AlbunsPage() {
     }, []);
     
    return filterCategories.length > 0 ? (
+       <>
+       <Header />
         <Main>
-        <Header />
         <BodyAlbum>
             {
             filterCategories.map(vinil => {
@@ -45,6 +47,7 @@ function AlbunsPage() {
             }
         </BodyAlbum>
         </Main>
+        </>
     ) : (
         <Main>
             <span>Carregando a página</span>
