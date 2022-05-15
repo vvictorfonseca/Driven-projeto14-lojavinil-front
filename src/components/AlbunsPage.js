@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 import UserContext from '../context/UserContext';
 import Header from "./Header";
+import Main from "./stylesAll/Main";
+import CapaAlbum from './stylesAll/CapaAlbum';
 
 function AlbunsPage() {
 
@@ -29,12 +31,14 @@ function AlbunsPage() {
         <BodyAlbum>
             {
             filterCategories.map(vinil => {
-                const {banda, album, url, preco } = vinil;
+                const { _id, banda, album, url, preco } = vinil;
                 return  (
-                   <CapaAlbum imagePath={posterURL}>
-                        <Link to={`/carrinho/${id}`}>
-                            <img src={posterURL} alt={title} key={id}/>
+                   <CapaAlbum imagePath={url}>
+                        <Link to={`/carrinho/${_id}`}>
+                            <img src={url} alt={title} key={_id}/>
+                            <p>{`${banda} - ${album}`}</p>
                         </Link>
+                        <p>{`por: R$ ${preco}`}</p>
                   </CapaAlbum>
                    )
                 })
@@ -47,5 +51,13 @@ function AlbunsPage() {
         </Main>
     );
 }
+
+const BodyAlbum = styled.section`
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    `
 
 export default AlbunsPage
