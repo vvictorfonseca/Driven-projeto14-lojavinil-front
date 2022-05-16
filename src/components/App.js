@@ -2,12 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import GlobalStyle from "./css/GlobalStyle";
-
 import UserContext from "../context/UserContext";
-
 import HomePage from "./HomePage";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import DescriptionPage from "./DescriptionPage";
 import AlbunsPage from "./AlbunsPage";
 
 function App() {
@@ -21,8 +20,9 @@ function App() {
     const [nameUser, setNameUser] = useState("");
     const [allAlbuns, setAllAlbuns] = useState([]);
     const [idAlbum, setIdAlbum] = useState("");
+    const [idUser, setIdUser] = useState("")
 
-    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser, allAlbuns, setAllAlbuns, idAlbum, setIdAlbum }
+    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser, idAlbum, setIdAlbum, allAlbuns, setAllAlbuns, idUser, setIdUser }
 
     useEffect(() => {
         if(tokenStorage){

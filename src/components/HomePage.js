@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled from "styled-components"
+import styled from "styled-components";
 import { useContext } from "react";
 
 import UserContext from '../context/UserContext.js';
