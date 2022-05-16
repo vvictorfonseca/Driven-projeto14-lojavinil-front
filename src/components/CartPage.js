@@ -132,8 +132,8 @@ function CartPage() {
         const promise = axios.delete(url, config)
 
         promise.then(response =>{
-            alert("Seu carrinho foi apagado")
-            navigate("/")
+            alert("Seu carrinho foi apagado");
+            navigate("/");
         })
 
         promise.catch((error) => {
