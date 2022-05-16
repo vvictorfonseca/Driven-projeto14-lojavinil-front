@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useContext } from "react";
-
+import { Link } from 'react-router-dom';
+import styled from "styled-components";
 import UserContext from '../context/UserContext.js';
 import axios from 'axios';
 
@@ -12,7 +13,8 @@ import CapaAlbum from './stylesAll/CapaAlbum';
 function AlbunsPage() {
 
     const [albuns, setAlbuns] = useState([]);
-    const { categoria } = useContext(UserContext);
+    const { categoria, setIdAlbum } = useContext(UserContext);
+
     const filterCategories = albuns.filter(categorie => categorie.id === categoria);
     console.log(filterCategories);
 
@@ -25,33 +27,39 @@ function AlbunsPage() {
         })
         promise.catch(err => console.log(err.response));
     }, []);
-    
-   return filterCategories.length > 0 ? (
-       <>
-       <Header />
-        <Main>
-        <BodyAlbum>
-            {
-            filterCategories.map(vinil => {
-                const { _id, banda, album, url, preco } = vinil;
-                return  (
-                   <CapaAlbum imagePath={url}>
-                        <Link to={`/carrinho/${_id}`}>
-                            <img src={url} alt={title} key={_id}/>
-                            <p>{`${banda} - ${album}`}</p>
-                        </Link>
-                        <p>{`por: R$ ${preco}`}</p>
-                  </CapaAlbum>
-                   )
-                })
-            }
-        </BodyAlbum>
-        </Main>
+
+    return filterCategories.length > 0 ? (
+        <>
+            <Header />
+            <Main>
+                <BodyAlbum>
+                    {
+                        filterCategories.map(vinil => {
+                            const { _id, banda, album, url, preco } = vinil;
+                            return (
+                                <CapaAlbum imagePath={url}>
+                                    <Link to="/descricao" style={{ textDecoration: 'none' }} onClick={() =>{
+                                        setIdAlbum(_id)
+                                    }}>
+                                        <img src={url} key={_id} />
+                                        <p>{`${banda} - ${album}`}</p>
+                                    </Link>
+                                    <p>{`por: R$ ${preco}`}</p>
+                                </CapaAlbum>
+                            )
+                        })
+                    }
+                </BodyAlbum>
+            </Main>
         </>
     ) : (
+        <>
+        <Header />
         <Main>
             <span>Carregando a página</span>
         </Main>
+        </>
+
     );
 }
 
