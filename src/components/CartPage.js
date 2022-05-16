@@ -12,19 +12,13 @@ import Header from "./Header";
 
 function CartPage() {
 
-    const { _id } = useParams;
-
     const navigate = useNavigate();
 
     const { idUser, allCarts, setallCarts, token } = useContext(UserContext)
-    console.log("sou o usuário", idUser)
 
     const [idAlbum, setIdAlbum] = useState("")
 
-    console.log("idddd", idAlbum)
-
     const cartFiltered = allCarts.filter(product => product.userId == idUser)
-    console.log("carrinho do user", cartFiltered)
 
     useEffect(() => {
 
@@ -105,8 +99,6 @@ function CartPage() {
     
                         const obj = cartFiltered
                 
-                        console.log("buy", cartFiltered);
-                
                         const promise = axios.post(URL, obj, config)
                 
                         promise.then(() =>{
@@ -140,7 +132,8 @@ function CartPage() {
         const promise = axios.delete(url, config)
 
         promise.then(response =>{
-            console.log("o carrinho do usuário foi apagado")
+            alert("Seu carrinho foi apagado")
+            navigate("/")
         })
 
         promise.catch((error) => {

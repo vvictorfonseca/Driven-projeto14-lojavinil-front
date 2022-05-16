@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 import { useContext } from "react";
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
@@ -14,14 +13,12 @@ function AlbunsPage() {
     const [albuns, setAlbuns] = useState([]);
     const { categoria, setIdAlbum } = useContext(UserContext);
     const filterCategories = albuns.filter(categorie => categorie.id === categoria);
-    console.log(filterCategories);
 
     useEffect(() => {
         const promise = axios.get("https://projeto-loja-vinil.herokuapp.com/albuns");
         promise.then((response) => {
             const { data } = response;
             setAlbuns(data);
-            console.log(data);
         })
         promise.catch(err => console.log(err.response));
     }, []);
@@ -101,6 +98,7 @@ const Main = styled.main`
     justify-content: center;
     margin-top:25px;
     border-radius: 5px;
+    margin-bottom: 25px;
 `
 
 
