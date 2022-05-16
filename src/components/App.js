@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import GlobalStyle from "./css/GlobalStyle.js";
+import GlobalStyle from "./css/GlobalStyle";
 
-import UserContext from "../context/UserContext.js";
+import UserContext from "../context/UserContext";
 
-import HomePage from "./HomePage.js"
-import AlbunsPage from "./AlbunsPage.js";
-import SignUp from "./SignUp.js"
-import SignIn from "./SignIn.js";
+import HomePage from "./HomePage";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import DescriptionPage from "./DescriptionPage";
+import AlbunsPage from "./AlbunsPage";
 
 function App() {
 
@@ -19,8 +20,11 @@ function App() {
     const [token, setToken] = useState("")
     const [categoria, setCategoria] = useState("")
     const [nameUser, setNameUser] = useState("");
+    const [allAlbuns, setAllAlbuns] = useState([]);
+    const [idAlbum, setIdAlbum] = useState("");
+    const [idUser, setIdUser] = useState("")
 
-    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser }
+    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser, idAlbum, setIdAlbum, allAlbuns, setAllAlbuns, idUser, setIdUser }
 
     useEffect(() => {
         if(tokenStorage){
@@ -42,6 +46,7 @@ function App() {
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/signin" element={<SignIn />} />
                         <Route path="/albuns/:idgenero" element={<AlbunsPage />} />
+                        <Route path="/descricao" element={<DescriptionPage />} />
                     </Routes>
                 </UserContext.Provider>
             </BrowserRouter>
