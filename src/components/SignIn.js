@@ -28,7 +28,6 @@ function SignIn() {
             const { data } = response;
             setToken(data.token);
             setNameUser(data.name);
-            console.log("token", token)
             const user = JSON.stringify(data.token);
             const name = JSON.stringify(data.name);
             localStorage.setItem('token', user)

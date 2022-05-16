@@ -40,7 +40,9 @@ function Header() {
             </Link>
 
             <ContainerLogof>
+            <Link to={"/carrinho"} style={{ textDecoration: 'none' }}>
             <ion-icon name="cart-outline"></ion-icon>
+            </Link>
             
             <ion-icon name="log-out-outline" onClick={() => { logOut() }} ></ion-icon>
             </ContainerLogof>
@@ -67,6 +69,7 @@ const ContainerHeader = styled.div`
     ion-icon{
         font-size:32px;
         cursor: pointer;
+        color: #000000;
     }
 `
 const ContainerLogin = styled.div`

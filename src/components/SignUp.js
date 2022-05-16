@@ -31,7 +31,6 @@ function SignUp() {
             setUserData({...userData, email: ""});
             setUserData({...userData, password: ""});
             setUserData({...userData, confirmPassword: ""});
-            console.log("estou na promise",userData)
             navigate("/signin");
         })
     }
