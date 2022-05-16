@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
-
 import UserContext from '../context/UserContext.js';
 import axios from 'axios';
 
@@ -12,6 +11,7 @@ function AlbunsPage() {
 
     const [albuns, setAlbuns] = useState([]);
     const { categoria, setIdAlbum } = useContext(UserContext);
+
     const filterCategories = albuns.filter(categorie => categorie.id === categoria);
 
     useEffect(() => {
@@ -45,6 +45,7 @@ function AlbunsPage() {
                     }
                 </BodyAlbum>
             </Main>
+
         </>
     ) : (
         <>
@@ -53,6 +54,7 @@ function AlbunsPage() {
             <span>Carregando a página</span>
         </Main>
         </>
+
     );
 }
 
@@ -100,6 +102,7 @@ const Main = styled.main`
     border-radius: 5px;
     margin-bottom: 25px;
 `
+
 
 
 export default AlbunsPage
