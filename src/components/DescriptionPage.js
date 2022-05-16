@@ -14,7 +14,7 @@ function DescriptionPage() {
     const navigate = useNavigate();
 
     const { idAlbum, allAlbuns, setAllAlbuns, token, idUser, setIdUser } = useContext(UserContext)
-    console.log("to aqui", idAlbum);
+    
     const albumFiltered = allAlbuns.filter(album => album._id == idAlbum);
 
     useEffect(() => {
@@ -34,8 +34,6 @@ function DescriptionPage() {
         })
     }, []);
 
-    console.log("objetoooo", albumFiltered)
-
     function addToCart(){
 
         const URL = "https://projeto-loja-vinil.herokuapp.com/descricao"
@@ -46,7 +44,16 @@ function DescriptionPage() {
             }
         }
 
-        const promise = axios.post(URL, config, albumFiltered);
+        const newObjc = {...albumFiltered}
+
+        const obj = {
+            album: newObjc[0].album,
+            banda: newObjc[0].banda,
+            preco: newObjc[0].preco,
+            url: newObjc[0].url
+        }
+
+        const promise = axios.post(URL, obj, config);
 
         promise.then((response) => {
             const { data } = response;

@@ -8,6 +8,7 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import DescriptionPage from "./DescriptionPage";
 import AlbunsPage from "./AlbunsPage";
+import CartPage from "./CartPage"
 
 function App() {
 
@@ -20,9 +21,10 @@ function App() {
     const [nameUser, setNameUser] = useState("");
     const [allAlbuns, setAllAlbuns] = useState([]);
     const [idAlbum, setIdAlbum] = useState("");
-    const [idUser, setIdUser] = useState("")
+    const [idUser, setIdUser] = useState("");
+    const [allCarts, setallCarts] = useState([]);
 
-    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser, idAlbum, setIdAlbum, allAlbuns, setAllAlbuns, idUser, setIdUser }
+    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser, idAlbum, setIdAlbum, allAlbuns, setAllAlbuns, idUser, setIdUser, allCarts, setallCarts }
 
     useEffect(() => {
         if(tokenStorage){
@@ -45,6 +47,7 @@ function App() {
                         <Route path="/signin" element={<SignIn />} />
                         <Route path="/albuns/:idgenero" element={<AlbunsPage />} />
                         <Route path="/descricao" element={<DescriptionPage />} />
+                        <Route path="/carrinho" element={<CartPage />} />
                     </Routes>
                 </UserContext.Provider>
             </BrowserRouter>
