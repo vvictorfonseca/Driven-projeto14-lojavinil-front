@@ -88,6 +88,7 @@ function DescriptionPage() {
                 <ContainerInfos>
                     <p>Banda: {info.banda}</p>
                     <p>Álbum: {info.album}</p>
+                    <p>Ano: {info.ano}</p>
                 </ContainerInfos>
 
                 <ContainerPrice>
@@ -105,7 +106,7 @@ const ContainerBody = styled.div`
     width:375px;
     background-color: #F5DEB3;
     margin: auto auto;
-    margin-top: 35px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     border-radius: 5px;

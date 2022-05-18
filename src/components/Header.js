@@ -24,6 +24,13 @@ function Header() {
         <ContainerHeader>
 
             <ContainerLogin>
+
+                <ContainerIonIcon>
+                    <Link to={"/signup"} style={{ textDecoration: 'none' }}>
+                    <ion-icon name="person-outline"></ion-icon>
+                    </Link>
+                </ContainerIonIcon>
+                
                 <Link to={"/signin"} style={{ textDecoration: 'none' }}>
                     <p>Entrar</p>
                 </Link>
@@ -51,6 +58,12 @@ function Header() {
     )
 }
 
+const ContainerIonIcon = styled.div`
+    @media(min-width: 416px) {
+        display: none;
+    }
+`
+
 const ContainerHeader = styled.div`
     display:flex;
     justify-content: space-between;
@@ -71,6 +84,23 @@ const ContainerHeader = styled.div`
         cursor: pointer;
         color: #000000;
     }
+
+    @media(max-width: 416px) {
+    width:415px;
+    margin: auto auto;
+    
+    ion-icon{
+        font-size: 25px;
+    }
+
+    p{
+        display:none;
+    }
+
+    h1{
+        margin-left: 120px;
+    }
+}
 `
 const ContainerLogin = styled.div`
     display:flex;
@@ -85,12 +115,22 @@ const SeparadorVertical = styled.div`
     height: 22px;
     background-color: #2F4F4F;
     margin-left: 10px;
-    margin-right: 10px
+    margin-right: 10px;
+
+    @media(max-width: 416px) {
+    display: none;
+    }
+
 `
 const ContainerLogof = styled.div`
     width: 80px;
     display: flex;
     justify-content:space-between;
     margin-right: 25px;
+
+    @media(max-width: 416px) {
+        width: 60px;
+    }
 `
+
 export default Header

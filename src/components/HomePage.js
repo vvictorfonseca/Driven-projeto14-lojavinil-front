@@ -36,7 +36,7 @@ function HomePage() {
                 {
                     token ? (
                         <SpanUsuario>
-                            <p>Bem vindo, {nameUser}</p>
+                            <p>Bem-vindo, {nameUser}</p>
                         </SpanUsuario>
                     ) : (
                         <SpanUsuario>
@@ -101,6 +101,7 @@ const SpanUsuario = styled.div`
         text-align:center;
         cursor: pointer;
         color: #000000;
+        word-spacing: -5px;
     }
 `
 
@@ -122,13 +123,23 @@ const ContainerMenu = styled.div`
         border-radius: 5px;
         cursor: pointer;
     }
+
+    @media(max-width: 416px) {
+        width: 375px;
+        justify-content: center;
+        background-color: #F4A460;
+
+        button{
+            background-color:#F4A460;
+        }
+    }
 `
 
 const ContainerGender = styled.div`
     width: 213px;
     height:218px;
     background-color: #F5DEB3;
-    margin-left: 15px;
+    margin-left: 25px;
     margin-top:15px;
     border-radius:5px;
     display:flex;
@@ -141,6 +152,20 @@ const ContainerGender = styled.div`
         bottom: 0;
         margin-bottom: 10px;
         color: #000;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    @media(max-width: 416px) {
+        width:170px;
+        height: 300px;
+        background-color:#F4A460;
+        margin-top: 20px;
+        margin-right: 15px;
+        margin-left: 20px;
+        p{
+            font-size: 20px;
+        }
     }
 `
 const ContainerCovers = styled.div`
@@ -158,6 +183,16 @@ const ContainerCovers = styled.div`
         position: relative;
         bottom: 0;
         margin-top: 10px;
+    }
+
+    @media(max-width: 416px) {
+
+        background-color:#F4A460;
+        
+        img{
+            width: 250px;
+            margin: auto auto;
+        }
     }
 `
 

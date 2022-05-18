@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import axios from 'axios';
@@ -14,7 +13,7 @@ function CartPage() {
 
     const navigate = useNavigate();
 
-    const { idUser, allCarts, setallCarts, token } = useContext(UserContext)
+    const { idUser, allCarts, setallCarts, token, albumInfo, setAlbumInfo, idProduto, setIdProduto } = useContext(UserContext)
 
     const [idAlbum, setIdAlbum] = useState("")
 
@@ -52,6 +51,7 @@ function CartPage() {
             <span>Total: R$ {total.toFixed(2)}</span>
         )
     }
+    
     if (cartFiltered.length == 0){
         return (
             <>
@@ -131,7 +131,7 @@ function CartPage() {
 
         const promise = axios.delete(url, config)
 
-        promise.then(response =>{
+        promise.then(() =>{
             alert("Seu carrinho foi apagado");
             navigate("/");
         })
@@ -155,6 +155,12 @@ function CartPage() {
                 <p>R$ {info.preco}</p>
                 </ContainerDescricao>
 
+                <Link to={`/carrinho/${info._id}`} style={{ textDecoration: 'none' }} >
+                <ion-icon name="trash-outline" onClick={() => {
+                    setAlbumInfo({url: info.url, name: info.album, banda: info.banda, preco: info.preco });
+                    setIdProduto(info._id);
+                }} ></ion-icon>
+                </Link>
                 
             </ContainerCart>
         )
@@ -211,6 +217,7 @@ const ContainerCart = styled.div`
         right:0;
         margin-right: 5px;
         margin-top: 17px;
+        color: #000000;
         cursor: pointer;
     }
 `
