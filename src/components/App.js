@@ -8,7 +8,8 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import DescriptionPage from "./DescriptionPage";
 import AlbunsPage from "./AlbunsPage";
-import CartPage from "./CartPage"
+import CartPage from "./CartPage";
+import ApagarPage from "./ApagarPage";
 
 function App() {
 
@@ -23,8 +24,10 @@ function App() {
     const [idAlbum, setIdAlbum] = useState("");
     const [idUser, setIdUser] = useState("");
     const [allCarts, setallCarts] = useState([]);
+    const [albumInfo, setAlbumInfo] = useState({});
+    const [idProduto, setIdProduto] = useState("");
 
-    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser, idAlbum, setIdAlbum, allAlbuns, setAllAlbuns, idUser, setIdUser, allCarts, setallCarts }
+    const contextValue = {categoria, setCategoria, userData, setUserData, token, setToken, nameUser, setNameUser, idAlbum, setIdAlbum, allAlbuns, setAllAlbuns, idUser, setIdUser, allCarts, setallCarts, albumInfo, setAlbumInfo, idProduto, setIdProduto }
 
     useEffect(() => {
         if(tokenStorage){
@@ -48,6 +51,7 @@ function App() {
                         <Route path="/albuns/:idgenero" element={<AlbunsPage />} />
                         <Route path="/descricao" element={<DescriptionPage />} />
                         <Route path="/carrinho" element={<CartPage />} />
+                        <Route path="/carrinho/:id" element={<ApagarPage />} />
                     </Routes>
                 </UserContext.Provider>
             </BrowserRouter>

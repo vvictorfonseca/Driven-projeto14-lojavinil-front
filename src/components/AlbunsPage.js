@@ -63,7 +63,7 @@ const BodyAlbum = styled.section`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    //justify-content: center;
 `
 
 const CapaAlbum = styled.article`
@@ -72,8 +72,9 @@ const CapaAlbum = styled.article`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 10px;
-    margin-top:25px;
+    margin-left: 26px;
+    margin-top:15px;
+    margin-bottom: 10px;
 
     p{
         font-size:16px;
