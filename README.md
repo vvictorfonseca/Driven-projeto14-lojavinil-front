@@ -25,3 +25,23 @@ Essa aplicação consiste em um e-commerce de uma loja de vinil. Nela o usuário
 - JWTs & refresh tokens
 
 ***
+## 🏁 Rodando a aplicação
+
+Certifique-se que voce tem a ultima versão estável do Node.js e npm rodando localmente.
+
+Primeiro, faça o clone desse repositório na sua maquina:
+
+```
+git clone https://github.com/vvictorfonseca/projeto-backend.git
+```
+
+Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias.
+
+```
+npm install
+```
+
+Finalizado o processo, é só inicializar o servidor
+```
+npm start
+```
