@@ -1,7 +1,7 @@
 # <p align = "center"> LojaVinil </p>
 
 <p align="center">
-   <img width="150" src="file:///C:/Users/Victor%20Hugo%20Fonseca/Downloads/music-cd-svgrepo-com.svg"/>
+   <img width="150" src="https://github.com/simple-icons/simple-icons/blob/develop/icons/applemusic.svg"/>
 </p>
 
 <p align = "center">
