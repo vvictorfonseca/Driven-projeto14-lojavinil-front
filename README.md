@@ -5,24 +5,23 @@
 </p>
 
 <p align = "center">
-   <img src="https://img.shields.io/badge/author-Victor Hugo Fonseca-4dae71?style=flat-square" />
+   <img src="https://img.shields.io/badge/author-Victor Hugo Fonseca | Hermes -4dae71?style=flat-square" />
 </p>
 
 
 ##  :clipboard: Descrição
 
-Navegar na internet pode ser uma atividade muito divertida, mas ao mesmo tempo, muito perigosa. Inúmeros estudos e levantamentos (nacionais e internacionais) mostram que o número de golpes virtuais não para de crescer. Uma forma de nos protegermos é através de senhas diferentes e seguras. Com intuíto de atender essa necessidade, neste projeto foi desemvolvido um gerenciador de senhas.
+Essa aplicação 
 
 ***
 
 ## :computer:	 Tecnologias e Ferramentas usadas
 
+- React.js
 - Node.js
 - Express.js
 - Node.js
-- TypeScript
-- PostgreSql
-- Prisma
+- MongoDb
 - JWTs & refresh tokens
 
 ***
