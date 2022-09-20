@@ -11,7 +11,7 @@
 
 ##  :clipboard: Descrição
 
-Essa aplicação 
+Essa aplicação consiste em um e-commerce de uma loja de vinil. Nela o usuário consegue se cadastrar e escolher a partir de categorias musicais vinis que o interessam. A partir do momento que o usuário clica em uma categoria, é exibido todos os álbuns da categoria musical escolhida, tendo a opção de selecionar e adicionar ao carrinho o vinil escolhido.
 
 ***
 
