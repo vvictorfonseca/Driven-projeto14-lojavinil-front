@@ -32,7 +32,7 @@ Certifique-se que voce tem a ultima versão estável do Node.js e npm rodando lo
 Primeiro, faça o clone desse repositório na sua maquina:
 
 ```
-git clone https://github.com/vvictorfonseca/projeto-backend.git
+git clone https://github.com/vvictorfonseca/Driven-projeto14-lojavinil-front.git
 ```
 
 Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias.
@@ -41,7 +41,7 @@ Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias.
 npm install
 ```
 
-Finalizado o processo, é só inicializar o servidor
+Finalizado o processo, é só inicializar o servidor. Obs: o back-end precisa estar em pé.
 ```
 npm start
 ```
